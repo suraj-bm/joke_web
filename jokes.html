@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desktop Website Template</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Styles for website layout */
+      .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://source.unsplash.com/random/1920x1080");
+        background-size: cover;
+        background-position: center;
+        height: 600px;
+        color: white;
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        height: 3rem;
+        width: 3rem;
+        background-color: #f8f9fa;
+        border-radius: 0.75rem;
+      }
+
+      /* Styles for joke modal */
+      .joke-modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        max-width: 500px;
+        width: 90%;
+      }
+
+      .modal-backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      }
+
+      .joke-text {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Joke Generator</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <button class="btn btn-primary joke-button">Get Started</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center">
+      <div class="container text-center">
+        <h1 class="display-4 mb-4">Welcome to Joke Generator</h1>
+        <p class="lead mb-4">
+          Click the button below to get a random programming joke!
+        </p>
+        <button class="btn btn-primary btn-lg joke-button">Get Started</button>
+      </div>
+    </section>
+
+    <!-- Joke Modal -->
+    <div class="modal-backdrop" id="jokeBackdrop"></div>
+    <div class="joke-modal" id="jokeModal">
+      <h3 class="mb-4">Here's a joke for you! 😄</h3>
+      <p class="joke-text" id="jokeText"></p>
+      <button class="btn btn-secondary me-2" onclick="closeJokeModal()">
+        Close
+      </button>
+      <button class="btn btn-primary" onclick="showAnotherJoke()">
+        Another Joke
+      </button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Add the external jokes.js file -->
+    <script src="jokes.js"></script>
+  </body>
+</html>
